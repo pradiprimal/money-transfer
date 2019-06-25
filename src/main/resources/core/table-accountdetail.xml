@@ -1,0 +1,43 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="PRimal" id="7274F1E9D09D4BD9E0531B974464660F">
+        <createTable tableName="ACCOUNT_DETAIL">
+            <column name="ID" type="VARCHAR2(36 BYTE)">
+                <constraints primaryKey="true" primaryKeyName="PK_ACCOUNT_DETAIL" nullable="false"/>
+            </column>
+            <column name="ACCOUNT_NUMBER" type="VARCHAR2(25)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ACCOUNT_HOLDER_NAME" type="VARCHAR2(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="BALANCE" type="NUMBER" defaultValue="0">
+            </column>
+            <column name="CREATED_DATE" type="DATETIME">
+            </column>
+            <column name="UPDATED_DATE" type="DATETIME">
+            </column>
+            <column name="VERSION" type="NUMBER" defaultValue="0">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="PRimal" id="7274F1E9D0A14BD9E0531B974464660F">
+        <addUniqueConstraint tableName="ACCOUNT_DETAIL" constraintName="ACCOUNT_NUMBER_UN"
+                             columnNames="ACCOUNT_NUMBER"/>
+    </changeSet>
+
+    <changeSet author="PRimal" id="7274F1E9D0A04BD9E0531B974464660F">
+        <sqlFile
+                encoding="utf8"
+                endDelimiter=";"
+                path="account_detail.sql"
+                relativeToChangelogFile="true"
+                splitStatements="true"
+                stripComments="true"/>
+    </changeSet>
+</databaseChangeLog>

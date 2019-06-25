@@ -1,0 +1,21 @@
+database:
+  url: jdbc:h2:mem:bank
+  driverClass: org.h2.Driver
+  maxWaitForConnection: 1s
+  validationQuery: "SELECT 1"
+  validationQueryTimeout: 3s
+  minSize: 8
+  maxSize: 32
+  checkConnectionWhileIdle: false
+  evictionInterval: 10s
+  minIdleTime: 1 minute
+  checkConnectionOnBorrow: true
+
+# Logging settings.
+logging:
+  level: INFO
+  loggers:
+    com.revolut.money.transfer: DEBUG
+
+server:
+  applicationContextPath: /api

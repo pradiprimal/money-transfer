@@ -1,0 +1,26 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="PRimal" id="7274F1E9D09D4BD9E0531B974364660F">
+        <createTable tableName="TRANSACTION_DETAIL">
+            <column name="ID" type="VARCHAR2(36 BYTE)">
+                <constraints primaryKey="true" primaryKeyName="PK_TRANSACTION_DETAIL" nullable="false"/>
+            </column>
+            <column name="TRANSACTION_TYPE" type="VARCHAR2(2)">
+            </column>
+            <column name="REMARKS" type="VARCHAR2(200)">
+            </column>
+            <column name="AMOUNT" type="NUMBER" defaultValue="0">
+            </column>
+            <column name="CREATED_DATE" type="DATETIME">
+            </column>
+            <column name="ACCOUNT_DETAIL_ID" type="VARCHAR2(36 BYTE)">
+                <constraints foreignKeyName="ACCOUNT_DETAIL_ID_FK" nullable="false"
+                             references="ACCOUNT_DETAIL(ID)"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
