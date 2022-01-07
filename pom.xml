@@ -14,7 +14,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <mockito.version>2.25.0</mockito.version>
         <json-path.version>2.4.0</json-path.version>
-        <h2.db>1.4.199</h2.db>
+        <h2.db>2.0.206</h2.db>
     </properties>
     <dependencies>
         <dependency>
